@@ -9,6 +9,8 @@ body {
   background-color: rgba(5, 1, 27, 0.783);
   color: white;
   height: 800vh;
+  position: relative;
+  font-size: 100%;
 }
 
 
@@ -99,38 +101,102 @@ header li {
   width: 1.5em;
 }
 
-#featured-articals {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  position: relative;
+#home {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  z-index: 90;
 }
 
-.title__item {
+#featured-articals {
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.8em;
+  position: relative;
+  top: 4vh;
+  width: 70vw;
+  height: 40vh;
+}
+
+.title__item__item1,
+.title__item__item2,
+.title__item__item3,
+.title__item__item4,
+.title__item__item5 {
   color: hwb(0 100% 0%);
-  height: 20em;
-  width: 30em;
-  position: absolute;
+  width: 100%;
+  height: 100%;
+  position: relative;
   top: 0;
   border: none;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  transition: top 0.25s ease-in-out 0.1s;
+  transition: top 0.3s ease-in-out 0.1s;
 }
 
+.title__item__item1 {
+  grid-area: 1/1/3/3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
-.title__item:hover {
+.title__item__item1:hover,
+.title__item__item2:hover,
+.title__item__item3:hover,
+.title__item__item4:hover,
+.title__item__item5:hover {
   cursor: pointer;
-  top: 2vh;
+  top: 0.5vh;
+  border: 2px solid rgba(0, 0, 0, 0.281);
+  box-shadow: 3px 4px rgba(0, 0, 0, 0.228);
 }
 
-.title__image1 {
-  position: relative;
+.title__item__item2 {
+  grid-column: 3/4;
+  grid-row: 1/2;
+  background-color:rgb(115, 164, 11);
+}
+
+.title__item__item3 {
+  grid-column: 4/5;
+  grid-row: 1/2;
+  background-color:rgb(18, 131, 0);
+}
+
+.title__item__item4 {
+  grid-column: 3/4;
+  grid-row: 2/3;
+  background-color:rgb(0, 131, 96);
+}
+
+.title__item__item5 {
+  grid-column: 4/5;
+  grid-row: 2/3;
+  background-color:rgb(0, 79, 131);
+}
+
+.title__image1,
+.title__image1__big {
+  position: absolute;
   width: 100%;
   height: 100%;
   border: none;
   border-radius: 20px;
   object-fit: cover;
+}
+
+.title__image1 {
+  opacity: 0.2;
+}
+
+.title__image1__big {
+  opacity: 1;
 }
 
 .title__div1 {
@@ -151,7 +217,7 @@ header li {
 .title__div1 {
   background-color: hwb(0 88% 12%);
   color: black;
-  font-size: 0.7em;
+  font-size: 0.5em;
   width: 6em;
   height: 2em;
   text-align: center;
@@ -165,7 +231,206 @@ header li {
 }
 
 .title__p2 {
-  font-size: 2.5em;
+  font-size: 1.5em;
   font-weight: bolder;
 }
 
+.side-sentence {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform:rotate(270deg);
+  display: inline-block;
+  height: 10em;
+  font-size: 1.2em;
+}
+
+#other_articals {
+  margin-top: 10vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  grid-template-rows: 1fr 1fr 1fr;
+  row-gap: 4vh;
+}
+
+.other_articals_item1,
+.other_articals_item2,
+.other_articals_item3 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2vw;
+  width: 60vw;
+  height: 100%;
+  overflow: hidden;
+}
+
+.other_articals_item1 {
+  background-color:rgb(141, 22, 22);
+}
+
+.other_articals_item2 {
+  background-color:rgb(112, 56, 11);
+}
+
+.other_articals_item3{
+  background-color:rgb(59, 100, 5);
+}
+
+.disc {
+  position: absolute;
+  bottom: 35%;
+  background-color:  rgba(3, 3, 3, 0.349);
+  padding: 0.5vw 0.5vh;
+  border-radius: 2em;
+  width: 75%;
+  max-height: 100%;
+}
+
+.other_articals_item1 img,
+.other_articals_item2 img,
+.other_articals_item3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2vw;
+  transition: transform 0.3s ease-in-out 0.1s;
+  opacity: 0.2;
+}
+
+.other_articals_item1 img:hover,
+.other_articals_item2 img:hover,
+.other_articals_item3 img:hover {
+  transform: scale(1.02, 1.02);
+  cursor: pointer;
+}
+
+
+.left-tag {
+  bottom: 70%;
+  left: 13%;
+}
+
+.right-tag {
+  bottom: 70%;
+  left: 22%;
+}
+
+.left-tag, .right-tag {
+  position: absolute;
+  border: 1px solid white;
+  border-radius: 4vw;
+  background-color: rgba(3, 3, 3, 0.349);
+  padding: 0.4vw 0.4vh;
+  font-size: 0.8vw;
+}
+
+.other_articals_item1 .title,
+.other_articals_item2 .title,
+.other_articals_item3 .title {
+  font-size: 3.2vw;
+  font-weight: bolder;
+}
+
+.other_articals_item1 .author,
+.other_articals_item2 .author,
+.other_articals_item3 .author {
+  margin-top: 1.5vh;
+  font-size: 1.2vw;
+}
+
+.load-more-btn {
+  width: 50vw;
+  height: 8vh;
+  margin-top: 5vh;
+  font-size: 1em;
+  background-color: rgba(67, 64, 100, 0.986);
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  transition: transform 0.3s ease-in-out 0.1s;
+}
+
+.load-more-btn:hover {
+  background-color:rgba(38, 34, 67, 0.986);
+  transform: scale(1.05,1.05);
+}
+
+.subscribe {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.subscribe_text {
+  font-size: 2.5em;
+  width: 25vw;
+}
+
+.animated_text {
+  height: 3vh;
+  width: 0;
+  overflow: hidden;
+  position: relative;
+  animation-name: width-change;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  margin: 5vh;
+}
+
+@keyframes width-change {
+  25% {width: 0vw;}
+  25% {width: 5vw;}
+  25% {width: 10vw;}
+  25% {width: 11vw;}
+}
+
+.subscribe p {
+  font-size: 1em;
+  position: relative;
+  padding: 1vh;
+  animation-name: typing;
+  animation-duration: 7s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  display: inline-block;
+  word-break: break-all;
+}
+
+@keyframes typin {
+  0% {left: 15vw;}
+  50% {left: 0;}
+  100% {left: 15vw;}
+}
+
+.animated_text span {
+  position: absolute;
+  right: -3px;
+  animation-name: blinker;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  font-size: 3em;
+  font-weight: bolder;
+}
+
+@keyframes blinker {
+  0%, 100% {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
